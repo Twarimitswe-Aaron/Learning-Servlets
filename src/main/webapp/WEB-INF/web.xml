@@ -1,0 +1,83 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Archetype Created Web Application</display-name>
+    <servlet>
+        <servlet-name>sum</servlet-name>
+        <servlet-class>com.servlet.SumServer</servlet-class>
+        <init-param>
+            <param-name>ServletDescription</param-name>
+            <param-value>Add numbers</param-value>
+        </init-param>
+
+    </servlet>
+    <servlet>
+        <servlet-name>output</servlet-name>
+        <servlet-class>com.servlet.DisplayResultServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>calculate</servlet-name>
+        <servlet-class>com.servlet.Calculate</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>calculate</servlet-name>
+        <url-pattern>/calculate</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>output</servlet-name>
+        <url-pattern>/display</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sum</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+    <context-param>
+        <param-name>appName</param-name>
+        <param-value>Calculator</param-value>
+    </context-param>
+    <servlet-mapping>
+        <servlet-name>subtract</servlet-name>
+        <url-pattern>/sub</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>subtract</servlet-name>
+        <servlet-class>com.servlet.Subtract</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Multiply</servlet-name>
+        <url-pattern>/mult</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Multiply</servlet-name>
+        <servlet-class>com.servlet.Multiply</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>divide</servlet-name>
+        <url-pattern>/divide</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>divide</servlet-name>
+        <servlet-class>com.servlet.Divide</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Header</servlet-name>
+        <servlet-class>com.servlet.Header</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Header</servlet-name>
+        <url-pattern>/header</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Footer</servlet-name>
+        <url-pattern>/footer</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Footer</servlet-name>
+        <servlet-class>com.servlet.Footer</servlet-class>
+    </servlet>
+</web-app>

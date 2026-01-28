@@ -23,7 +23,5 @@ public class DisplayResultServlet extends HttpServlet {
         RequestDispatcher rd1=req.getRequestDispatcher("/footer");
         rd1.include(req,res);
 
-
-
     }
 }

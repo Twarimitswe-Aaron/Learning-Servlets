@@ -7,6 +7,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -28,6 +29,10 @@ public class SumServer extends HttpServlet {
         PrintWriter out=resp.getWriter();
 
         req.setAttribute("value",sum);
+        HttpSession session=req.getSession();
+        session.setAttribute("value",sum);
+
+
 
         RequestDispatcher rd=req.getRequestDispatcher("display");
         rd.forward(req,resp);

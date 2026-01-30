@@ -1,41 +1,22 @@
 package com.servlet;
 
-import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletConfig;
-import jakarta.servlet.ServletContext;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-
+import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.*;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 
 public class SumServer extends HttpServlet {
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Parse parameters
-        int num1 = (int)req.getAttribute("num1");
-        int num2 = (int)req.getAttribute("num2");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-        int sum = num1 + num2;
+        int num1 = (int) request.getAttribute("num1");
+        int num2 = (int) request.getAttribute("num2");
 
-        ServletConfig conf=getServletConfig();
-        String servletDesc=conf.getInitParameter("ServletDescription");
-        ServletContext cnxt=getServletContext();
-        String appName=cnxt.getInitParameter("appName");
-        PrintWriter out=resp.getWriter();
+        int result = num1 + num2;
 
-        req.setAttribute("value",sum);
-        HttpSession session=req.getSession();
-        session.setAttribute("value",sum);
-
-
-
-        RequestDispatcher rd=req.getRequestDispatcher("display");
-        rd.forward(req,resp);
-
+        request.setAttribute("value", result);
+        request.getRequestDispatcher("display").forward(request, response);
     }
 }

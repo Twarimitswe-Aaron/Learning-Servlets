@@ -5,20 +5,29 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
 public class Divide extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int num1 = Integer.parseInt(request.getParameter("num1"));
-        int num2 = Integer.parseInt(request.getParameter("num2"));
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        int num1 = Integer.parseInt(request.getParameter("num1"));
+//        int num2 = Integer.parseInt(request.getParameter("num2"));
+//
+//        if(num2==0){
+//            response.getWriter().println("Invalid denominator not equal to zero");
+//        }
+//
+//        int divide = num1 / num2;
+//        request.setAttribute("value", divide);
 
-        if(num2==0){
-            response.getWriter().println("Invalid denominator not equal to zero");
-        }
+        HttpSession session = request.getSession();
+        int num1 = (int)session.getAttribute("num1");
+        int num2 = (int)session.getAttribute("num2");
 
         int divide = num1 / num2;
         request.setAttribute("value", divide);
+
         RequestDispatcher rd = request.getRequestDispatcher("display");
         rd.forward(request, response);
     }

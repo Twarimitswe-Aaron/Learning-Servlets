@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
 errorPage="error.jsp"
-
 %>
 
 <%!
     int add(int a, int b) {
-        return a / b;
+        return a + b;
     }
 %>
 
@@ -26,4 +25,5 @@ errorPage="error.jsp"
 Sum is: <%= sum %>
 
 </body>
+
 </html>
